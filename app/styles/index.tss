@@ -4,12 +4,39 @@
 },
 ".button": {
 	top:20,
-	width:100,
-	height:40
+	width:100
+},
+".label":{
+	color:"black",
+	top:10,
+	left:30
 },
 "#createEvent":{
-    title:"Create Event"
+    title:"Create Event",
+    top:40
 },
 "#createPlayer":{
     title:"Create Player"
+},
+"#frontTitle":{
+	title:"Sky'd",
+	top:20,
+	color:"blue",
+	minimumFontSize:24
+},
+"#loginButton":{
+	title:"Login"
+},
+"#cancelButton":{
+	title:"Cancel",
+	left:30
+},
+"#username":{
+	title:"Username:"
+}
+"#password":{
+	title:"Password:"
+},
+"#forgot":{
+	title:"Forgot Username or Password?"
 }

@@ -4,6 +4,15 @@ var Cloud = require("ti.cloud");
 
 getPlayers();
 
+function cancelButton(){
+	alert("Canceled");
+}
+
+function loginButton(){
+	alert("Logged in");
+	$.win.open();
+}
+
 function showUser(evt){
     alert(evt.rowData.userData);
 }

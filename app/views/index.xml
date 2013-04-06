@@ -4,4 +4,11 @@
 		<Button id="createPlayer" class="button" onClick="createPlayer"/>
 		<TableView id="players" onClick="showUser" />
 	</Window>
+	<Window id="login" class="container">
+		<Label id="frontTitle"/>
+		<Label id="username" class="label"/>
+		<Label id="password" class="label"/>
+		<Label id="forgot" class="label"/>
+		<Button id="loginButton" class="button" onClick="loginButton"/>
+	</Window>
 </Alloy>

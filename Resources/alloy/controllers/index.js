@@ -1,4 +1,11 @@
 function Controller() {
+    function cancelButton() {
+        alert("Canceled");
+    }
+    function loginButton() {
+        alert("Logged in");
+        $.win.open();
+    }
     function showUser(evt) {
         alert(evt.rowData.userData);
     }
@@ -62,9 +69,8 @@ function Controller() {
     });
     $.addTopLevelView($.__views.win);
     $.__views.createEvent = Ti.UI.createButton({
-        top: 20,
+        top: 40,
         width: 100,
-        height: 40,
         title: "Create Event",
         id: "createEvent"
     });
@@ -73,7 +79,6 @@ function Controller() {
     $.__views.createPlayer = Ti.UI.createButton({
         top: 20,
         width: 100,
-        height: 40,
         title: "Create Player",
         id: "createPlayer"
     });
@@ -84,6 +89,52 @@ function Controller() {
     });
     $.__views.win.add($.__views.players);
     showUser ? $.__views.players.addEventListener("click", showUser) : __defers["$.__views.players!click!showUser"] = !0;
+    $.__views.login = Ti.UI.createWindow({
+        backgroundColor: "white",
+        layout: "vertical",
+        id: "login"
+    });
+    $.addTopLevelView($.__views.login);
+    $.__views.frontTitle = Ti.UI.createLabel({
+        title: "Sky'd",
+        top: 20,
+        color: "blue",
+        minimumFontSize: 24,
+        id: "frontTitle"
+    });
+    $.__views.login.add($.__views.frontTitle);
+    $.__views.username = Ti.UI.createLabel({
+        color: "black",
+        top: 10,
+        left: 30,
+        title: "Username:",
+        id: "username"
+    });
+    $.__views.login.add($.__views.username);
+    $.__views.password = Ti.UI.createLabel({
+        color: "black",
+        top: 10,
+        left: 30,
+        title: "Password:",
+        id: "password"
+    });
+    $.__views.login.add($.__views.password);
+    $.__views.forgot = Ti.UI.createLabel({
+        color: "black",
+        top: 10,
+        left: 30,
+        title: "Forgot Username or Password?",
+        id: "forgot"
+    });
+    $.__views.login.add($.__views.forgot);
+    $.__views.loginButton = Ti.UI.createButton({
+        top: 20,
+        width: 100,
+        title: "Login",
+        id: "loginButton"
+    });
+    $.__views.login.add($.__views.loginButton);
+    loginButton ? $.__views.loginButton.addEventListener("click", loginButton) : __defers["$.__views.loginButton!click!loginButton"] = !0;
     exports.destroy = function() {};
     _.extend($, $.__views);
     $.win.open();
@@ -92,6 +143,7 @@ function Controller() {
     __defers["$.__views.createEvent!click!createEvent"] && $.__views.createEvent.addEventListener("click", createEvent);
     __defers["$.__views.createPlayer!click!createPlayer"] && $.__views.createPlayer.addEventListener("click", createPlayer);
     __defers["$.__views.players!click!showUser"] && $.__views.players.addEventListener("click", showUser);
+    __defers["$.__views.loginButton!click!loginButton"] && $.__views.loginButton.addEventListener("click", loginButton);
     _.extend($, exports);
 }
 
