@@ -7,36 +7,33 @@
 	width:100
 },
 ".label":{
-	color:"black",
 	top:10,
-	left:30
-},
-"#createEvent":{
-    title:"Create Event",
-    top:40
-},
-"#createPlayer":{
-    title:"Create Player"
-},
-"#frontTitle":{
-	title:"Sky'd",
-	top:20,
-	color:"blue",
-	minimumFontSize:24
+	left:30,
+	width: Ti.UI.SIZE,
+	height: Ti.UI.SIZE,
+	color:"black"
 },
 "#loginButton":{
-	title:"Login"
-},
-"#cancelButton":{
-	title:"Cancel",
+	title:"Login",
 	left:30
 },
-"#username":{
-	title:"Username:"
+"#title":{
+	top:20,
+	color:'#700',
+	font:{fontSize:48},
+	shadowColor: '#aaa',
+ 	shadowOffset: {x:10, y:10},
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+	width: Ti.UI.SIZE,
+	height: Ti.UI.SIZE
 }
-"#password":{
-	title:"Password:"
+"#username":{
+	top:50
 },
-"#forgot":{
-	title:"Forgot Username or Password?"
+"#forgotLabel":{
+	color:'#200'
+},
+"#signupButton":{
+	title:"Signup",
+	left:30
 }

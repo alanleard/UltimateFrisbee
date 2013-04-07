@@ -1,14 +1,16 @@
-<Alloy>
-	<Window id="win" class="container">
-		<Button id="createEvent" class="button" onClick="createEvent"/>
-		<Button id="createPlayer" class="button" onClick="createPlayer"/>
-		<TableView id="players" onClick="showUser" />
-	</Window>
+<Alloy>	
 	<Window id="login" class="container">
-		<Label id="frontTitle"/>
-		<Label id="username" class="label"/>
-		<Label id="password" class="label"/>
-		<Label id="forgot" class="label"/>
+		
+		<Label id="title">Sky'd</Label>
+		<Label id="username" class="label">Username:</Label>
+		<Label class="label">Password:</Label>
+		
 		<Button id="loginButton" class="button" onClick="loginButton"/>
+		<Button id="signupButton" class="button" onClick="signup"/>
+
+		<Label class="label">Forgot </Label>
+		<Label id="forgotLabel" onClick="forgotUser"> Username</Label>
+		<Label> or</Label>
+		<Label id="forgotLabel" onClick="forgotPass"> Password</Label>
 	</Window>
 </Alloy>

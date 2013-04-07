@@ -1,4 +1,7 @@
 <Alloy>
-	<View class="container">
-	</View>
+	<Window id="home" class="container">
+		<Button id="createEvent" class="button" onClick="createEvent"/>
+		<Button id="createPlayer" class="button" onClick="createPlayer"/>
+		<TableView id="players" onClick="showUser" />
+	</Window>
 </Alloy>
