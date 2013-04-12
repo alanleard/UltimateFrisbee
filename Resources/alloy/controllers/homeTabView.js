@@ -55,40 +55,24 @@ function Controller() {
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     $model = arguments[0] ? arguments[0].$model : null;
     var $ = this, exports = {}, __defers = {};
-    $.__views.home = Ti.UI.createWindow({
-        backgroundColor: "white",
-        layout: "vertical",
-        id: "home"
+    $.__views.homeWin = Ti.UI.createWindow({
+        id: "homeWin"
     });
-    $.addTopLevelView($.__views.home);
-    $.__views.createEvent = Ti.UI.createButton({
-        top: 40,
-        width: 100,
-        title: "Create Event",
-        id: "createEvent"
+    $.__views.label1 = Ti.UI.createLabel({
+        text: "Home",
+        id: "label1",
+        color: "#999"
     });
-    $.__views.home.add($.__views.createEvent);
-    createEvent ? $.__views.createEvent.addEventListener("click", createEvent) : __defers["$.__views.createEvent!click!createEvent"] = !0;
-    $.__views.createPlayer = Ti.UI.createButton({
-        top: 20,
-        width: 100,
-        title: "Create Player",
-        id: "createPlayer"
+    $.__views.homeWin.add($.__views.label1);
+    $.__views.homeTab = Ti.UI.createTab({
+        window: $.__views.homeWin,
+        id: "homeTab",
+        title: "Home"
     });
-    $.__views.home.add($.__views.createPlayer);
-    createPlayer ? $.__views.createPlayer.addEventListener("click", createPlayer) : __defers["$.__views.createPlayer!click!createPlayer"] = !0;
-    $.__views.players = Ti.UI.createTableView({
-        id: "players"
-    });
-    $.__views.home.add($.__views.players);
-    showUser ? $.__views.players.addEventListener("click", showUser) : __defers["$.__views.players!click!showUser"] = !0;
+    $.addTopLevelView($.__views.homeTab);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    var Cloud = require("ti.cloud");
-    getPlayers();
-    __defers["$.__views.createEvent!click!createEvent"] && $.__views.createEvent.addEventListener("click", createEvent);
-    __defers["$.__views.createPlayer!click!createPlayer"] && $.__views.createPlayer.addEventListener("click", createPlayer);
-    __defers["$.__views.players!click!showUser"] && $.__views.players.addEventListener("click", showUser);
+    var Cloud = require("ti.cloud"), args = arguments[0] || {}, title = args.customTitle || "home", TABTOTAL = 4, tabTitle = new Array("Home", "Explore", "News", "Profile");
     _.extend($, exports);
 }
 

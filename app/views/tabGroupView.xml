@@ -1,0 +1,8 @@
+<Alloy>
+	<TabGroup>
+		<Require src="homeTabView"/>
+		<Require src="exploreTabView"/>
+		<Require src="newsTabView"/>
+		<Require src="profileTabView"/>
+	</TabGroup>
+</Alloy>

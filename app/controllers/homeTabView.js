@@ -1,6 +1,30 @@
 var Cloud = require("ti.cloud");
+var args = arguments[0] || {}
+var title = args.customTitle || 'home';
+var TABTOTAL=4;
+var tabTitle = new Array( "Home", "Explore", "News", "Profile");
 
-getPlayers();
+// for (var i=0; i<TABTOTAL; i++){
+	// mywin='mywin'+(i);
+	// var tab = Titanium.UI.createTab({
+    	// window:mywin,
+    	// title:tabTitle[i]
+	// });
+// tabGroup.addTab(tab);
+// }
+// var tabGroup = Titanium.UI.createTabGroup('tabGroup');
+
+// var tab = Titanium.UI.createTab({
+    	// window:'mywin1',
+    	// title:'Home'
+	// });
+// tabGroup.addTab(tab);
+// 
+// tab = Titanium.UI.createTab({
+    	// window:'mywin2',
+    	// title:'Explore'
+	// });
+// tabGroup.addTab(tab);
 
 function showUser(evt){
     alert(evt.rowData.userData);
@@ -9,7 +33,7 @@ function showUser(evt){
 function getPlayers(){
     Cloud.Users.query({
         page: 1,
-        per_page: 100,
+        per_page: 100
         // where: {
             // age: { '$gt': 28 },
             // favorite_color: 'blue',

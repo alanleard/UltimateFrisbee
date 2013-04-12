@@ -1,16 +1,21 @@
 <Alloy>	
-	<Window id="login" class="container">
+	<Window id="login" class="background">
+		<View class="container" layout="vertical">
+			<Label id="title" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER">Sky'd</Label>
+			<Label id="username" class="label">Username:</Label>
+			<Label class="label">Password:</Label>	
+		</View>
 		
-		<Label id="title">Sky'd</Label>
-		<Label id="username" class="label">Username:</Label>
-		<Label class="label">Password:</Label>
+		<View class="container" layout="horizontal" top="125">
+			<Button id="loginButton" class="button" onClick="loginButton"/>
+			<Button id="signupButton" class="button" onClick="signup"/>
+		</View>
 		
-		<Button id="loginButton" class="button" onClick="loginButton"/>
-		<Button id="signupButton" class="button" onClick="signup"/>
-
-		<Label class="label">Forgot </Label>
-		<Label id="forgotLabel" onClick="forgotUser"> Username</Label>
-		<Label> or</Label>
-		<Label id="forgotLabel" onClick="forgotPass"> Password</Label>
+		<View class="container" layout="horizontal" top="260">
+			<Label class="label">Forgot </Label>
+			<Label id="forgotLabel" onClick="forgotUser"> Username</Label>
+			<Label class="label" left="5"> or</Label>
+			<Label id="forgotLabel" onClick="forgotPass"> Password</Label>
+		</View>
 	</Window>
 </Alloy>

@@ -6,10 +6,7 @@ function cancelButton(){
 
 function loginButton(){
 	alert("Logged in");
-	var homeCtrl = Alloy.createController('home');
-	homeCtrl.getView().open();
-	$.login.close();
-	$.login = null;
+	Alloy.createController('tabGroupView').getView().open();
 }
 
 function forgotUser(){

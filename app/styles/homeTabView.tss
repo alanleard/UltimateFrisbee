@@ -1,6 +1,9 @@
 ".container": {
-	backgroundColor:"white",
-	layout:"vertical"
+	backgroundColor:"white"
+},
+".viewContainer":{
+	position:"relative",
+	top:20
 },
 ".button": {
 	top:20,
