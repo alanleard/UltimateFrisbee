@@ -3,7 +3,6 @@ function Controller() {
         alert("Canceled");
     }
     function loginButton() {
-        alert("Logged in");
         Alloy.createController("tabGroupView").getView().open();
     }
     function forgotUser() {
@@ -140,7 +139,7 @@ function Controller() {
     forgotPass ? $.__views.forgotLabel.addEventListener("click", forgotPass) : __defers["$.__views.forgotLabel!click!forgotPass"] = !0;
     exports.destroy = function() {};
     _.extend($, $.__views);
-    $.login.open();
+    Alloy.createController("tabGroupView").getView().open();
     __defers["$.__views.loginButton!click!loginButton"] && $.__views.loginButton.addEventListener("click", loginButton);
     __defers["$.__views.signupButton!click!signup"] && $.__views.signupButton.addEventListener("click", signup);
     __defers["$.__views.forgotLabel!click!forgotUser"] && $.__views.forgotLabel.addEventListener("click", forgotUser);

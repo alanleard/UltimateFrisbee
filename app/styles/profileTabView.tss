@@ -1,3 +1,9 @@
 ".container": {
 	backgroundColor: "white"
+},
+"#profilePic":{
+	top:'5%',
+	left:'5%',
+	height:'10%',
+	width:'10%'
 }

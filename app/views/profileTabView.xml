@@ -1,7 +1,7 @@
 <Alloy>
 	<Tab id="profileTab" title="Profile" >
         <Window id="profileWin">
-           <Label id="label1" color="#999">Profile!</Label>
+
         </Window>
     </Tab>
 </Alloy>
