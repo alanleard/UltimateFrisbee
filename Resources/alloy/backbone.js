@@ -1,5 +1,5 @@
 (function() {
-    var l = this, y = l.Backbone, z = Array.prototype.slice, A = Array.prototype.splice, g;
+    var g, l = this, y = l.Backbone, z = Array.prototype.slice, A = Array.prototype.splice;
     g = "undefined" != typeof exports ? exports : l.Backbone = {};
     g.VERSION = "0.9.2";
     var f = l._;
@@ -19,7 +19,8 @@
             var d, e, f, g, j;
             if (!b) return this;
             a = a.split(p);
-            for (d = this._callbacks || (this._callbacks = {}); e = a.shift(); ) f = (j = d[e]) ? j.tail : {}, f.next = g = {}, f.context = c, f.callback = b, d[e] = {
+            for (d = this._callbacks || (this._callbacks = {}); e = a.shift(); ) f = (j = d[e]) ? j.tail : {}, 
+            f.next = g = {}, f.context = c, f.callback = b, d[e] = {
                 tail: g,
                 next: j ? j.next : f
             };
@@ -29,7 +30,9 @@
             var d, e, h, g, j, q;
             if (e = this._callbacks) {
                 if (!a && !b && !c) return delete this._callbacks, this;
-                for (a = a ? a.split(p) : f.keys(e); d = a.shift(); ) if (h = e[d], delete e[d], h && (b || c)) for (g = h.tail; (h = h.next) !== g; ) (j = h.callback, q = h.context, b && j !== b || c && q !== c) && this.on(d, j, q);
+                for (a = a ? a.split(p) : f.keys(e); d = a.shift(); ) if (h = e[d], delete e[d], 
+                h && (b || c)) for (g = h.tail; (h = h.next) !== g; ) (j = h.callback, q = h.context, 
+                b && j !== b || c && q !== c) && this.on(d, j, q);
                 return this;
             }
         },
@@ -54,7 +57,7 @@
         var c;
         a || (a = {});
         b && b.parse && (a = this.parse(a));
-        if (c = n(this, "defaults")) a = f.extend({}, c, a);
+        (c = n(this, "defaults")) && (a = f.extend({}, c, a));
         b && b.collection && (this.collection = b.collection);
         this.attributes = {};
         this._escapedAttributes = {};
@@ -104,9 +107,10 @@
             var b = c.changes = {}, h = this.attributes, g = this._escapedAttributes, j = this._previousAttributes || {};
             for (e in d) {
                 a = d[e];
-                if (!f.isEqual(h[e], a) || c.unset && f.has(h, e)) delete g[e], (c.silent ? this._silent : b)[e] = !0;
+                (!f.isEqual(h[e], a) || c.unset && f.has(h, e)) && (delete g[e], (c.silent ? this._silent : b)[e] = !0);
                 c.unset ? delete h[e] : h[e] = a;
-                !f.isEqual(j[e], a) || f.has(h, e) != f.has(j, e) ? (this.changed[e] = a, c.silent || (this._pending[e] = !0)) : (delete this.changed[e], delete this._pending[e]);
+                f.isEqual(j[e], a) && f.has(h, e) == f.has(j, e) ? (delete this.changed[e], delete this._pending[e]) : (this.changed[e] = a, 
+                c.silent || (this._pending[e] = !0));
             }
             c.silent || this.change(c);
             return this;
@@ -147,7 +151,7 @@
                     delete c.wait;
                     b = f.extend(d || {}, b);
                 }
-                if (!h.set(b, c)) return !1;
+                if (!h.set(b, c)) return false;
                 i ? i(h, a) : h.trigger("sync", h, a, c);
             };
             c.error = g.wrapError(c.error, h, c);
@@ -192,7 +196,7 @@
             this._silent = {};
             for (c in d) this.trigger("change:" + c, this, this.get(c), a);
             if (b) return this;
-            for (; !f.isEmpty(this._pending); ) {
+            for (;!f.isEmpty(this._pending); ) {
                 this._pending = {};
                 this.trigger("change", this, a);
                 for (c in this.changed) !this._pending[c] && !this._silent[c] && delete this.changed[c];
@@ -206,12 +210,12 @@
         },
         changedAttributes: function(a) {
             if (!a) return this.hasChanged() ? f.clone(this.changed) : !1;
-            var b, c = !1, d = this._previousAttributes, e;
+            var b, e, c = !1, d = this._previousAttributes;
             for (e in a) f.isEqual(d[e], b = a[e]) || ((c || (c = {}))[e] = b);
             return c;
         },
         previous: function(a) {
-            return !arguments.length || !this._previousAttributes ? null : this._previousAttributes[a];
+            return arguments.length && this._previousAttributes ? this._previousAttributes[a] : null;
         },
         previousAttributes: function() {
             return f.clone(this._previousAttributes);
@@ -251,7 +255,7 @@
             b || (b = {});
             a = f.isArray(a) ? a.slice() : [ a ];
             c = 0;
-            for (d = a.length; c < d; c++) {
+            for (d = a.length; d > c; c++) {
                 if (!(e = a[c] = this._prepareModel(a[c], b))) throw Error("Can't add an invalid model to a collection");
                 g = e.cid;
                 i = e.id;
@@ -259,7 +263,8 @@
             }
             for (c = l.length; c--; ) a.splice(l[c], 1);
             c = 0;
-            for (d = a.length; c < d; c++) (e = a[c]).on("all", this._onModelEvent, this), this._byCid[e.cid] = e, null != e.id && (this._byId[e.id] = e);
+            for (d = a.length; d > c; c++) (e = a[c]).on("all", this._onModelEvent, this), this._byCid[e.cid] = e, 
+            null != e.id && (this._byId[e.id] = e);
             this.length += d;
             A.apply(this.models, [ null != b.at ? b.at : this.models.length, 0 ].concat(a));
             this.comparator && this.sort({
@@ -267,7 +272,8 @@
             });
             if (b.silent) return this;
             c = 0;
-            for (d = this.models.length; c < d; c++) j[(e = this.models[c]).cid] && (b.index = c, e.trigger("add", e, this, b));
+            for (d = this.models.length; d > c; c++) j[(e = this.models[c]).cid] && (b.index = c, 
+            e.trigger("add", e, this, b));
             return this;
         },
         remove: function(a, b) {
@@ -275,7 +281,9 @@
             b || (b = {});
             a = f.isArray(a) ? a.slice() : [ a ];
             c = 0;
-            for (d = a.length; c < d; c++) if (g = this.getByCid(a[c]) || this.get(a[c])) delete this._byId[g.id], delete this._byCid[g.cid], e = this.indexOf(g), this.models.splice(e, 1), this.length--, b.silent || (b.index = e, g.trigger("remove", g, this, b)), this._removeReference(g);
+            for (d = a.length; d > c; c++) (g = this.getByCid(a[c]) || this.get(a[c])) && (delete this._byId[g.id], 
+            delete this._byCid[g.cid], e = this.indexOf(g), this.models.splice(e, 1), this.length--, 
+            b.silent || (b.index = e, g.trigger("remove", g, this, b)), this._removeReference(g));
             return this;
         },
         push: function(a, b) {
@@ -331,7 +339,7 @@
         reset: function(a, b) {
             a || (a = []);
             b || (b = {});
-            for (var c = 0, d = this.models.length; c < d; c++) this._removeReference(this.models[c]);
+            for (var c = 0, d = this.models.length; d > c; c++) this._removeReference(this.models[c]);
             this._reset();
             this.add(a, f.extend({
                 silent: !0
@@ -376,7 +384,8 @@
         },
         _prepareModel: function(a, b) {
             b || (b = {});
-            a instanceof o ? a.collection || (a.collection = this) : (b.collection = this, a = new this.model(a, b), a._validate(a.attributes, b) || (a = !1));
+            a instanceof o ? a.collection || (a.collection = this) : (b.collection = this, a = new this.model(a, b), 
+            a._validate(a.attributes, b) || (a = !1));
             return a;
         },
         _removeReference: function(a) {
@@ -384,7 +393,9 @@
             a.off("all", this._onModelEvent, this);
         },
         _onModelEvent: function(a, b, c, d) {
-            ("add" == a || "remove" == a) && c != this || ("destroy" == a && this.remove(b, d), b && a === "change:" + b.idAttribute && (delete this._byId[b.previous(b.idAttribute)], this._byId[b.id] = b), this.trigger.apply(this, arguments));
+            ("add" == a || "remove" == a) && c != this || ("destroy" == a && this.remove(b, d), 
+            b && a === "change:" + b.idAttribute && (delete this._byId[b.previous(b.idAttribute)], 
+            this._byId[b.id] = b), this.trigger.apply(this, arguments));
         }
     });
     f.each("forEach,each,map,reduce,reduceRight,find,detect,filter,select,reject,every,all,some,any,include,contains,invoke,max,min,sortBy,sortedIndex,toArray,size,first,initial,rest,last,without,indexOf,shuffle,lastIndexOf,isEmpty,groupBy".split(","), function(a) {
@@ -401,7 +412,7 @@
     f.extend(u.prototype, k, {
         initialize: function() {},
         route: function(a, b, c) {
-            g.history || (g.history = new m);
+            g.history || (g.history = new m());
             f.isRegExp(a) || (a = this._routeToRegExp(a));
             c || (c = this[b]);
             g.history.route(a, f.bind(function(d) {
@@ -417,10 +428,10 @@
         },
         _bindRoutes: function() {
             if (this.routes) {
-                var a = [], b;
+                var b, a = [];
                 for (b in this.routes) a.unshift([ b, this.routes[b] ]);
                 b = 0;
-                for (var c = a.length; b < c; b++) this.route(a[b][0], a[b][1], this[a[b][1]]);
+                for (var c = a.length; c > b; b++) this.route(a[b][0], a[b][1], this[a[b][1]]);
             }
         },
         _routeToRegExp: function(a) {
@@ -459,13 +470,16 @@
             this._wantsPushState = !!this.options.pushState;
             this._hasPushState = !(!this.options.pushState || !window.history || !window.history.pushState);
             var a = this.getFragment(), b = document.documentMode;
-            if (b = E.exec(navigator.userAgent.toLowerCase()) && (!b || 7 >= b)) this.iframe = i("<iframe src=\"javascript:0\" tabindex=\"-1\" />").hide().appendTo("body")[0].contentWindow, this.navigate(a);
+            (b = E.exec(navigator.userAgent.toLowerCase()) && (!b || 7 >= b)) && (this.iframe = i('<iframe src="javascript:0" tabindex="-1" />').hide().appendTo("body")[0].contentWindow, 
+            this.navigate(a));
             this._hasPushState ? i(window).bind("popstate", this.checkUrl) : this._wantsHashChange && "onhashchange" in window && !b ? i(window).bind("hashchange", this.checkUrl) : this._wantsHashChange && (this._checkUrlInterval = setInterval(this.checkUrl, this.interval));
             this.fragment = a;
             a = window.location;
             b = a.pathname == this.options.root;
-            if (this._wantsHashChange && this._wantsPushState && !this._hasPushState && !b) return this.fragment = this.getFragment(null, !0), window.location.replace(this.options.root + "#" + this.fragment), !0;
-            this._wantsPushState && this._hasPushState && b && a.hash && (this.fragment = this.getHash().replace(s, ""), window.history.replaceState({}, document.title, a.protocol + "//" + a.host + this.options.root + this.fragment));
+            if (this._wantsHashChange && this._wantsPushState && !this._hasPushState && !b) return this.fragment = this.getFragment(null, !0), 
+            window.location.replace(this.options.root + "#" + this.fragment), !0;
+            this._wantsPushState && this._hasPushState && b && a.hash && (this.fragment = this.getHash().replace(s, ""), 
+            window.history.replaceState({}, document.title, a.protocol + "//" + a.host + this.options.root + this.fragment));
             if (!this.options.silent) return this.loadUrl();
         },
         stop: function() {
@@ -494,11 +508,15 @@
         },
         navigate: function(a, b) {
             if (!m.started) return !1;
-            if (!b || !0 === b) b = {
+            b && !0 !== b || (b = {
                 trigger: b
-            };
+            });
             var c = (a || "").replace(s, "");
-            this.fragment != c && (this._hasPushState ? (0 != c.indexOf(this.options.root) && (c = this.options.root + c), this.fragment = c, window.history[b.replace ? "replaceState" : "pushState"]({}, document.title, c)) : this._wantsHashChange ? (this.fragment = c, this._updateHash(window.location, c, b.replace), this.iframe && c != this.getFragment(this.getHash(this.iframe)) && (b.replace || this.iframe.document.open().close(), this._updateHash(this.iframe.location, c, b.replace))) : window.location.assign(this.options.root + a), b.trigger && this.loadUrl(a));
+            this.fragment != c && (this._hasPushState ? (0 != c.indexOf(this.options.root) && (c = this.options.root + c), 
+            this.fragment = c, window.history[b.replace ? "replaceState" : "pushState"]({}, document.title, c)) : this._wantsHashChange ? (this.fragment = c, 
+            this._updateHash(window.location, c, b.replace), this.iframe && c != this.getFragment(this.getHash(this.iframe)) && (b.replace || this.iframe.document.open().close(), 
+            this._updateHash(this.iframe.location, c, b.replace))) : window.location.assign(this.options.root + a), 
+            b.trigger && this.loadUrl(a));
         },
         _updateHash: function(a, b, c) {
             c ? a.replace(a.toString().replace(/(javascript:|#).*$/, "") + "#" + b) : a.hash = b;
@@ -543,7 +561,7 @@
                 for (var b in a) {
                     var c = a[b];
                     f.isFunction(c) || (c = this[a[b]]);
-                    if (!c) throw Error("Method \"" + a[b] + "\" does not exist");
+                    if (!c) throw Error('Method "' + a[b] + '" does not exist');
                     var d = b.match(F), e = d[1], d = d[2], c = f.bind(c, this), e = e + (".delegateEvents" + this.cid);
                     "" === d ? this.$el.bind(e, c) : this.$el.delegate(d, e, c);
                 }
@@ -554,7 +572,7 @@
         },
         _configure: function(a) {
             this.options && (a = f.extend({}, this.options, a));
-            for (var b = 0, c = w.length; b < c; b++) {
+            for (var b = 0, c = w.length; c > b; b++) {
                 var d = w[b];
                 a[d] && (this[d] = a[d]);
             }
@@ -588,11 +606,13 @@
             dataType: "json"
         };
         c.url || (e.url = n(b, "url") || t());
-        !c.data && b && ("create" == a || "update" == a) && (e.contentType = "application/json", e.data = JSON.stringify(b.toJSON()));
+        c.data || !b || "create" != a && "update" != a || (e.contentType = "application/json", 
+        e.data = JSON.stringify(b.toJSON()));
         g.emulateJSON && (e.contentType = "application/x-www-form-urlencoded", e.data = e.data ? {
             model: e.data
         } : {});
-        g.emulateHTTP && ("PUT" === d || "DELETE" === d) && (g.emulateJSON && (e.data._method = d), e.type = "POST", e.beforeSend = function(a) {
+        !g.emulateHTTP || "PUT" !== d && "DELETE" !== d || (g.emulateJSON && (e.data._method = d), 
+        e.type = "POST", e.beforeSend = function(a) {
             a.setRequestHeader("X-HTTP-Method-Override", d);
         });
         "GET" !== e.type && !g.emulateJSON && (e.processData = !1);
@@ -611,15 +631,15 @@
         };
         f.extend(d, a);
         x.prototype = a.prototype;
-        d.prototype = new x;
+        d.prototype = new x();
         b && f.extend(d.prototype, b);
         c && f.extend(d, c);
         d.prototype.constructor = d;
         d.__super__ = a.prototype;
         return d;
     }, n = function(a, b) {
-        return !a || !a[b] ? null : f.isFunction(a[b]) ? a[b]() : a[b];
+        return a && a[b] ? f.isFunction(a[b]) ? a[b]() : a[b] : null;
     }, t = function() {
-        throw Error("A \"url\" property or function must be specified");
+        throw Error('A "url" property or function must be specified');
     };
 }).call(this);

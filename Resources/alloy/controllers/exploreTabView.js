@@ -1,7 +1,9 @@
 function Controller() {
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
-    $model = arguments[0] ? arguments[0].$model : null;
-    var $ = this, exports = {}, __defers = {};
+    arguments[0] ? arguments[0]["__parentSymbol"] : null;
+    arguments[0] ? arguments[0]["$model"] : null;
+    var $ = this;
+    var exports = {};
     $.__views.exploreWin = Ti.UI.createWindow({
         id: "exploreWin"
     });
@@ -16,12 +18,12 @@ function Controller() {
         id: "exploreTab",
         title: "Explore"
     });
-    $.addTopLevelView($.__views.exploreTab);
+    $.__views.exploreTab && $.addTopLevelView($.__views.exploreTab);
     exports.destroy = function() {};
     _.extend($, $.__views);
     _.extend($, exports);
 }
 
-var Alloy = require("alloy"), Backbone = Alloy.Backbone, _ = Alloy._, $model;
+var Alloy = require("alloy"), Backbone = Alloy.Backbone, _ = Alloy._;
 
 module.exports = Controller;

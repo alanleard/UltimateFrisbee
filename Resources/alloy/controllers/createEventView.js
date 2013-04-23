@@ -4,21 +4,11 @@ function Controller() {
     arguments[0] ? arguments[0]["$model"] : null;
     var $ = this;
     var exports = {};
-    $.__views.newsWin = Ti.UI.createWindow({
-        id: "newsWin"
+    $.__views.createEventView = Ti.UI.createView({
+        backgroundColor: "white",
+        id: "createEventView"
     });
-    $.__views.label1 = Ti.UI.createLabel({
-        text: "News!",
-        id: "label1",
-        color: "#999"
-    });
-    $.__views.newsWin.add($.__views.label1);
-    $.__views.newsTab = Ti.UI.createTab({
-        window: $.__views.newsWin,
-        id: "newsTab",
-        title: "News Feed"
-    });
-    $.__views.newsTab && $.addTopLevelView($.__views.newsTab);
+    $.__views.createEventView && $.addTopLevelView($.__views.createEventView);
     exports.destroy = function() {};
     _.extend($, $.__views);
     _.extend($, exports);

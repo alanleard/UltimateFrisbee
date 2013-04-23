@@ -2,8 +2,7 @@
 	backgroundColor:"white"
 }
 ".container": {
-	top:'30dp',
-	left:15
+	top:'1%'
 },
 ".button": {
 	top:20,
@@ -19,7 +18,7 @@
 },
 
 "#title":{
-	top:20,
+	top:'1%',
 	color:'#700',
 	font:{fontSize:48},
 	shadowColor: '#aaa',
