@@ -22,12 +22,12 @@ function Controller() {
         id: "login"
     });
     $.__views.login && $.addTopLevelView($.__views.login);
-    $.__views.__alloyId16 = Ti.UI.createView({
+    $.__views.__alloyId18 = Ti.UI.createView({
         top: "1%",
         layout: "vertical",
-        id: "__alloyId16"
+        id: "__alloyId18"
     });
-    $.__views.login.add($.__views.__alloyId16);
+    $.__views.login.add($.__views.__alloyId18);
     $.__views.title = Ti.UI.createLabel({
         top: "1%",
         color: "#700",
@@ -45,7 +45,7 @@ function Controller() {
         id: "title",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
     });
-    $.__views.__alloyId16.add($.__views.title);
+    $.__views.__alloyId18.add($.__views.title);
     $.__views.username = Ti.UI.createLabel({
         top: 50,
         left: 20,
@@ -55,23 +55,23 @@ function Controller() {
         text: "Username:",
         id: "username"
     });
-    $.__views.__alloyId16.add($.__views.username);
-    $.__views.__alloyId17 = Ti.UI.createLabel({
+    $.__views.__alloyId18.add($.__views.username);
+    $.__views.__alloyId19 = Ti.UI.createLabel({
         top: 5,
         left: 20,
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "black",
         text: "Password:",
-        id: "__alloyId17"
+        id: "__alloyId19"
     });
-    $.__views.__alloyId16.add($.__views.__alloyId17);
-    $.__views.__alloyId18 = Ti.UI.createView({
+    $.__views.__alloyId18.add($.__views.__alloyId19);
+    $.__views.__alloyId20 = Ti.UI.createView({
         top: "125",
         layout: "horizontal",
-        id: "__alloyId18"
+        id: "__alloyId20"
     });
-    $.__views.login.add($.__views.__alloyId18);
+    $.__views.login.add($.__views.__alloyId20);
     $.__views.loginButton = Ti.UI.createButton({
         top: 90,
         left: 20,
@@ -79,7 +79,7 @@ function Controller() {
         title: "Login",
         id: "loginButton"
     });
-    $.__views.__alloyId18.add($.__views.loginButton);
+    $.__views.__alloyId20.add($.__views.loginButton);
     loginButton ? $.__views.loginButton.addEventListener("click", loginButton) : __defers["$.__views.loginButton!click!loginButton"] = true;
     $.__views.signupButton = Ti.UI.createButton({
         top: 90,
@@ -88,24 +88,24 @@ function Controller() {
         title: "Signup",
         id: "signupButton"
     });
-    $.__views.__alloyId18.add($.__views.signupButton);
+    $.__views.__alloyId20.add($.__views.signupButton);
     signup ? $.__views.signupButton.addEventListener("click", signup) : __defers["$.__views.signupButton!click!signup"] = true;
-    $.__views.__alloyId19 = Ti.UI.createView({
+    $.__views.__alloyId21 = Ti.UI.createView({
         top: "260",
         layout: "horizontal",
-        id: "__alloyId19"
+        id: "__alloyId21"
     });
-    $.__views.login.add($.__views.__alloyId19);
-    $.__views.__alloyId20 = Ti.UI.createLabel({
+    $.__views.login.add($.__views.__alloyId21);
+    $.__views.__alloyId22 = Ti.UI.createLabel({
         top: 5,
         left: 20,
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "black",
         text: "Forgot",
-        id: "__alloyId20"
+        id: "__alloyId22"
     });
-    $.__views.__alloyId19.add($.__views.__alloyId20);
+    $.__views.__alloyId21.add($.__views.__alloyId22);
     $.__views.forgotLabel = Ti.UI.createLabel({
         color: "#200",
         top: 5,
@@ -113,18 +113,18 @@ function Controller() {
         text: "Username",
         id: "forgotLabel"
     });
-    $.__views.__alloyId19.add($.__views.forgotLabel);
+    $.__views.__alloyId21.add($.__views.forgotLabel);
     forgotUser ? $.__views.forgotLabel.addEventListener("click", forgotUser) : __defers["$.__views.forgotLabel!click!forgotUser"] = true;
-    $.__views.__alloyId21 = Ti.UI.createLabel({
+    $.__views.__alloyId23 = Ti.UI.createLabel({
         top: 5,
         left: "5",
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "black",
         text: "or",
-        id: "__alloyId21"
+        id: "__alloyId23"
     });
-    $.__views.__alloyId19.add($.__views.__alloyId21);
+    $.__views.__alloyId21.add($.__views.__alloyId23);
     $.__views.forgotLabel = Ti.UI.createLabel({
         color: "#200",
         top: 5,
@@ -132,7 +132,7 @@ function Controller() {
         text: "Password",
         id: "forgotLabel"
     });
-    $.__views.__alloyId19.add($.__views.forgotLabel);
+    $.__views.__alloyId21.add($.__views.forgotLabel);
     forgotPass ? $.__views.forgotLabel.addEventListener("click", forgotPass) : __defers["$.__views.forgotLabel!click!forgotPass"] = true;
     exports.destroy = function() {};
     _.extend($, $.__views);

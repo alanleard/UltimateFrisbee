@@ -7,15 +7,14 @@ function Controller() {
         alert("Privacy clicked");
     }
     function createUser() {
-        var name = null;
         Cloud.Users.create({
-            username: name,
-            first_name: name,
-            last_name: "test_lastname",
-            password: "test_password",
-            password_confirmation: "test_password"
+            email: $.email.value,
+            first_name: $.firstName.value,
+            last_name: $.lastName.value,
+            password: $.password.value,
+            password_confirmation: $.confirm.value
         }, function(e) {
-            e.success || alert("Error:\n" + (e.error && e.message || JSON.stringify(e)));
+            e.success ? alert("Success") : alert("Error:\n" + (e.error && e.message || JSON.stringify(e)));
         });
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
@@ -26,6 +25,10 @@ function Controller() {
     var __defers = {};
     $.__views.createUser = Ti.UI.createWindow({
         backgroundColor: "white",
+        top: "1%",
+        bottom: "1%",
+        left: "1%",
+        right: "1%",
         id: "createUser"
     });
     $.__views.createUser && $.addTopLevelView($.__views.createUser);
@@ -65,7 +68,7 @@ function Controller() {
         color: "black",
         right: "3%",
         width: "55%",
-        height: "7%",
+        height: "10%",
         id: "firstName"
     });
     $.__views.__alloyId1.add($.__views.firstName);
@@ -89,7 +92,7 @@ function Controller() {
         color: "black",
         right: "3%",
         width: "55%",
-        height: "7%",
+        height: "10%",
         id: "lastName"
     });
     $.__views.__alloyId3.add($.__views.lastName);
@@ -114,7 +117,7 @@ function Controller() {
         color: "black",
         right: "3%",
         width: "55%",
-        height: "7%",
+        height: "10%",
         id: "email"
     });
     $.__views.__alloyId5.add($.__views.email);
@@ -138,7 +141,7 @@ function Controller() {
         color: "black",
         right: "3%",
         width: "55%",
-        height: "7%",
+        height: "10%",
         id: "password"
     });
     $.__views.__alloyId7.add($.__views.password);
@@ -151,67 +154,93 @@ function Controller() {
     });
     $.__views.__alloyId0.add($.__views.__alloyId9);
     $.__views.__alloyId10 = Ti.UI.createLabel({
-        text: "By clicking the button below,",
-        right: "1%",
+        width: "30%",
+        height: Ti.UI.SIZE,
+        color: "black",
+        text: "Confirm:",
         id: "__alloyId10"
     });
     $.__views.__alloyId9.add($.__views.__alloyId10);
-    $.__views.__alloyId11 = Ti.UI.createLabel({
-        text: "you agree to Sky'd's",
-        right: "1%",
+    $.__views.confirm = Ti.UI.createTextArea({
+        color: "black",
+        right: "3%",
+        width: "55%",
+        height: "10%",
+        id: "confirm"
+    });
+    $.__views.__alloyId9.add($.__views.confirm);
+    $.__views.__alloyId11 = Ti.UI.createView({
+        top: "2%",
+        layout: "horizontal",
+        width: Ti.UI.SIZE,
+        height: Ti.UI.SIZE,
         id: "__alloyId11"
     });
-    $.__views.__alloyId9.add($.__views.__alloyId11);
+    $.__views.__alloyId0.add($.__views.__alloyId11);
     $.__views.__alloyId12 = Ti.UI.createLabel({
+        color: "black",
+        right: "1%",
+        text: "By clicking the button below,",
+        id: "__alloyId12"
+    });
+    $.__views.__alloyId11.add($.__views.__alloyId12);
+    $.__views.__alloyId13 = Ti.UI.createLabel({
+        color: "black",
+        right: "1%",
+        text: "you agree to Sky'd's",
+        id: "__alloyId13"
+    });
+    $.__views.__alloyId11.add($.__views.__alloyId13);
+    $.__views.__alloyId14 = Ti.UI.createLabel({
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "blue",
         highlightedColor: "red",
         text: "Terms of Service",
         right: "1%",
-        id: "__alloyId12"
+        id: "__alloyId14"
     });
-    $.__views.__alloyId9.add($.__views.__alloyId12);
-    termsPage ? $.__views.__alloyId12.addEventListener("click", termsPage) : __defers["$.__views.__alloyId12!click!termsPage"] = true;
-    $.__views.__alloyId13 = Ti.UI.createLabel({
-        text: "and",
+    $.__views.__alloyId11.add($.__views.__alloyId14);
+    termsPage ? $.__views.__alloyId14.addEventListener("click", termsPage) : __defers["$.__views.__alloyId14!click!termsPage"] = true;
+    $.__views.__alloyId15 = Ti.UI.createLabel({
+        color: "black",
         right: "1%",
-        id: "__alloyId13"
+        text: "and",
+        id: "__alloyId15"
     });
-    $.__views.__alloyId9.add($.__views.__alloyId13);
-    $.__views.__alloyId14 = Ti.UI.createLabel({
+    $.__views.__alloyId11.add($.__views.__alloyId15);
+    $.__views.__alloyId16 = Ti.UI.createLabel({
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
         color: "blue",
         highlightedColor: "red",
         text: "Privacy Page.",
-        id: "__alloyId14"
+        id: "__alloyId16"
     });
-    $.__views.__alloyId9.add($.__views.__alloyId14);
-    privacyPage ? $.__views.__alloyId14.addEventListener("click", privacyPage) : __defers["$.__views.__alloyId14!click!privacyPage"] = true;
-    $.__views.__alloyId15 = Ti.UI.createView({
+    $.__views.__alloyId11.add($.__views.__alloyId16);
+    privacyPage ? $.__views.__alloyId16.addEventListener("click", privacyPage) : __defers["$.__views.__alloyId16!click!privacyPage"] = true;
+    $.__views.__alloyId17 = Ti.UI.createView({
         top: "2%",
         layout: "horizontal",
         width: Ti.UI.SIZE,
         height: Ti.UI.SIZE,
-        id: "__alloyId15"
+        id: "__alloyId17"
     });
-    $.__views.__alloyId0.add($.__views.__alloyId15);
+    $.__views.__alloyId0.add($.__views.__alloyId17);
     $.__views.signUp = Ti.UI.createButton({
-        top: "10%",
+        top: "5%",
         left: "10%",
-        width: "30%",
+        width: 100,
         title: "SignUp",
         id: "signUp"
     });
-    $.__views.__alloyId15.add($.__views.signUp);
+    $.__views.__alloyId17.add($.__views.signUp);
     createUser ? $.__views.signUp.addEventListener("click", createUser) : __defers["$.__views.signUp!click!createUser"] = true;
     exports.destroy = function() {};
     _.extend($, $.__views);
     var Cloud = require("ti.cloud");
-    $.firstName;
-    __defers["$.__views.__alloyId12!click!termsPage"] && $.__views.__alloyId12.addEventListener("click", termsPage);
-    __defers["$.__views.__alloyId14!click!privacyPage"] && $.__views.__alloyId14.addEventListener("click", privacyPage);
+    __defers["$.__views.__alloyId14!click!termsPage"] && $.__views.__alloyId14.addEventListener("click", termsPage);
+    __defers["$.__views.__alloyId16!click!privacyPage"] && $.__views.__alloyId16.addEventListener("click", privacyPage);
     __defers["$.__views.signUp!click!createUser"] && $.__views.signUp.addEventListener("click", createUser);
     _.extend($, exports);
 }

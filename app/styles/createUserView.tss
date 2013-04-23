@@ -1,6 +1,14 @@
 ".background":{
-	backgroundColor:"white"
+	backgroundColor:"white",
+	top:'1%',
+	bottom:'1%',
+	left: '1%',
+	right: '1%'
 },
+".termsFont":{
+	color:"black",
+	right: "1%"
+}
 ".container": {
 	top:'2%',
 	layout:"horizontal",
@@ -9,9 +17,9 @@
 },
 
 ".button": {
-	top:"10%",
+	top:"5%",
 	left:"10%",
-	width: '30%'
+	width:100
 },
 
 ".label":{
@@ -40,5 +48,5 @@
     color:"black",
     right:'3%',
     width:"55%",
-    height:'7%'
+    height:'10%'
 }
