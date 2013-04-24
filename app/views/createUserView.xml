@@ -2,7 +2,12 @@
 	<Window id="createUser" class="background">
 			<View layout="vertical">
 				<Label id="title">Create Your Sky'd Profile</Label>
-			
+				
+				<View class="container">
+					<Label class="label">Username:</Label>
+					<TextArea id="userName" class="textArea" />
+				</View>
+				
 				<View class="container">
 					<Label class="label">First Name:</Label>
 					<TextArea id="firstName" class="textArea" />
@@ -31,8 +36,8 @@
 				<View class="container">
 					<Label class="termsFont">By clicking the button below,</Label>
 					<Label class="termsFont"> you agree to Sky'd's</Label>
-					<Label class="link" right="1%" onClick="termsPage">Terms of Service</Label>
-					<Label class="termsFont"> and </Label>
+					<Label class="link" right="3" onClick="termsPage">Terms of Service</Label>
+					<Label class="termsFont">and</Label>
 					<Label class="link" onClick="privacyPage">Privacy Page.</Label>
 				</View>
 				

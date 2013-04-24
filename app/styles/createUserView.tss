@@ -6,8 +6,9 @@
 	right: '1%'
 },
 ".termsFont":{
+	font:{fontSize:10},
 	color:"black",
-	right: "1%"
+	right:3
 }
 ".container": {
 	top:'2%',
@@ -18,22 +19,22 @@
 
 ".button": {
 	top:"5%",
-	left:"10%",
 	width:100
 },
 
 ".label":{
-	width: '30%',
+	width: 100,
 	height: Ti.UI.SIZE,
 	color:"black"
 },
 "#title":{
 	color:'#700',
-	font:{fontSize:24},
+	font:{fontSize:"20%"},
 	width: Ti.UI.SIZE,
 	height: Ti.UI.SIZE
 },
 ".link":{
+	font:{fontSize:10},
 	width: Ti.UI.SIZE,
 	height: Ti.UI.SIZE,
 	color:"blue",
@@ -48,5 +49,5 @@
     color:"black",
     right:'3%',
     width:"55%",
-    height:'10%'
+    height:'40dp'
 }
