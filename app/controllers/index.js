@@ -1,11 +1,7 @@
 //TODO: Correct the indented after finished with app
-	//$.login.open();
+	$.login.open();
 	//Alloy.createController('tabGroupView').getView().open();
-	Alloy.createController('createUserView').getView().open();
 	
-function cancelButton(){
-	alert("Canceled");
-}
 
 function loginButton(){
 	Alloy.createController('tabGroupView').getView().open();
@@ -20,7 +16,7 @@ function forgotPass(){
 }
 
 function signup(){
-	alert("TODO:Make signup page");
+	Alloy.createController('createUserView').getView().open();
 }
 
 

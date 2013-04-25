@@ -12,8 +12,13 @@ function privacyPage(e){
 	alert("Privacy clicked");
 }
 
+function cancelButton(){
+	Alloy.createController('index').getView().open();
+}
 
+//TODO:Add email Confirmation
 function createUser(e){
+		e.source.enabled = false;
 		var userName = $.userName.value;
 		var first_name = $.firstName.value;
 		var last_name = $.lastName.value;
@@ -35,13 +40,14 @@ function createUser(e){
         country:'Sparta'
     }, function (e) {
         if (e.success) {
-        	alert("Success");
-                      
+        	alert("An email has been sent for to confirm your account!");
+            Alloy.createController('tabGroupView').getView().open();
         } else {
             alert('Error:\n' +
-                ((e.error && e.message) || JSON.stringify(e)));
+                ((e.error && e.message) || JSON.stringify(e)));          
         }
     });
+    e.source.enabled = true;
 }
 
 

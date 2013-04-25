@@ -7,28 +7,28 @@ function Controller() {
     $.__views.tabGroupView = Ti.UI.createTabGroup({
         id: "tabGroupView"
     });
-    $.__views.__alloyId26 = Alloy.createController("homeTabView", {
-        id: "__alloyId26"
+    $.__views.__alloyId31 = Alloy.createController("homeTabView", {
+        id: "__alloyId31"
     });
-    $.__views.tabGroupView.addTab($.__views.__alloyId26.getViewEx({
+    $.__views.tabGroupView.addTab($.__views.__alloyId31.getViewEx({
         recurse: true
     }));
-    $.__views.__alloyId27 = Alloy.createController("exploreTabView", {
-        id: "__alloyId27"
+    $.__views.__alloyId32 = Alloy.createController("exploreTabView", {
+        id: "__alloyId32"
     });
-    $.__views.tabGroupView.addTab($.__views.__alloyId27.getViewEx({
+    $.__views.tabGroupView.addTab($.__views.__alloyId32.getViewEx({
         recurse: true
     }));
-    $.__views.__alloyId28 = Alloy.createController("newsTabView", {
-        id: "__alloyId28"
+    $.__views.__alloyId33 = Alloy.createController("newsTabView", {
+        id: "__alloyId33"
     });
-    $.__views.tabGroupView.addTab($.__views.__alloyId28.getViewEx({
+    $.__views.tabGroupView.addTab($.__views.__alloyId33.getViewEx({
         recurse: true
     }));
-    $.__views.__alloyId29 = Alloy.createController("profileTabView", {
-        id: "__alloyId29"
+    $.__views.__alloyId34 = Alloy.createController("profileTabView", {
+        id: "__alloyId34"
     });
-    $.__views.tabGroupView.addTab($.__views.__alloyId29.getViewEx({
+    $.__views.tabGroupView.addTab($.__views.__alloyId34.getViewEx({
         recurse: true
     }));
     $.__views.tabGroupView && $.addTopLevelView($.__views.tabGroupView);
