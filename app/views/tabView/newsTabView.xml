@@ -1,0 +1,7 @@
+<Alloy>
+	<Tab id="newsTab" title="News Feed" >
+        <Window id="newsWin">
+           <Label id="label1" color="#999">News!</Label>
+        </Window>
+    </Tab>
+</Alloy>

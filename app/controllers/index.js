@@ -1,10 +1,23 @@
 //TODO: Correct the indented after finished with app
 	$.login.open();
-	//Alloy.createController('tabGroupView').getView().open();
 	
+var Cloud = require("ti.cloud");
 
 function loginButton(){
-	Alloy.createController('tabGroupView').getView().open();
+	var user = $.userName.value;
+	var password = $.password.value;
+	Cloud.Users.login({
+    login: user,
+    password: password
+    
+	}, function (e) {
+	    if (e.success) {
+	        Alloy.createController('tabView/tabGroupView').getView().open();
+	    } else {
+	        alert('Error:\n' +
+	            ((e.error && e.message) || JSON.stringify(e)));
+	    }
+	});
 }
 
 function forgotUser(){
@@ -16,7 +29,7 @@ function forgotPass(){
 }
 
 function signup(){
-	Alloy.createController('createUserView').getView().open();
+	Alloy.createController('userView/createUserView').getView().open();
 }
 
 

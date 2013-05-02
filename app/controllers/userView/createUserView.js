@@ -19,7 +19,7 @@ function cancelButton(){
 //TODO:Add email Confirmation
 function createUser(e){
 		e.source.enabled = false;
-		var userName = $.userName.value;
+		var user = $.userName.value;
 		var first_name = $.firstName.value;
 		var last_name = $.lastName.value;
 		var email_addr = $.email.value;
@@ -27,17 +27,20 @@ function createUser(e){
 		var confirm = $.confirm.value;
 		
 	    Cloud.Users.create({
-	    user: userName,
         email: email_addr,
+        username: user,
         first_name: first_name,
         last_name: last_name,
         password: password,
         password_confirmation: confirm,
-        experience:'A godly 0 years',
-        gender: 'Undecided',
-        age:'5000',
-        city:'Rome',
-        country:'Sparta'
+        custom_fields:{
+        	"experience":'A godly 0 years',
+	        "gender": 'Undecided',
+	        "age": '500',
+	        "city":'Rome',
+	        "country":'Sparta'
+        }
+        
     }, function (e) {
         if (e.success) {
         	alert("An email has been sent for to confirm your account!");

@@ -1,0 +1,9 @@
+<Alloy>	
+	<Tab id="homeTab" title="Home" >
+        <Window class="background">
+        	<View layout="vertical">
+        		<Label id="label1" color="#999" onClick="logout">Home</Label>
+        	</View>         
+        </Window>
+    </Tab>
+</Alloy>

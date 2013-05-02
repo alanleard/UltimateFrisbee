@@ -4,13 +4,11 @@
 			<Label id="title" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER">Sky'd</Label>
 			
 			<View class="container" top="20%">				
-				<Label  class="label" width="90sp">Username:</Label>
-				<TextField id="username" class="textField"/>
+				<TextField id="userName" hintText="Username:" class="textField"/>
 			</View>
 			
 			<View class="container">				
-				<Label class="label" width="90sp">Password:</Label>	
-				<TextField id="password" class="textField" />
+				<TextField id="password" hintText="Password:" passwordMask="true" class="textField" />
 			</View>
 			
 			<View class="container">

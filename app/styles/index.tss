@@ -11,7 +11,7 @@
 	left:'7sp',
     color:"black",
     right:'3%',
-    width:"55%",
+    width:"250sp",
     height:'40sp'
 },
 ".button": {
