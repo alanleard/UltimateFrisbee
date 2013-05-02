@@ -1,7 +1,0 @@
-<Alloy>
-	<Tab id="profileTab" title="Profile" >
-        <Window id="profileWin">
-
-        </Window>
-    </Tab>
-</Alloy>

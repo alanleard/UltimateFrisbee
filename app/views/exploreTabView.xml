@@ -1,7 +1,0 @@
-<Alloy>
-	<Tab id="exploreTab" title="Explore" >
-        <Window id="exploreWin">
-           <Label id="label1" color="#999">Explore!</Label>
-        </Window>
-    </Tab>
-</Alloy>
