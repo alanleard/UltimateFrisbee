@@ -34,17 +34,21 @@ function createUser(e){
         password: password,
         password_confirmation: confirm,
         custom_fields:{
-        	"experience":'A godly 0 years',
-	        "gender": 'Undecided',
-	        "age": '500',
-	        "city":'Rome',
-	        "country":'Sparta'
+        	"nickname":"Batman",
+        	"team": "None",
+        	"league": "None",
+        	"experience": "A godly 0 years",
+	        "gender": "Undecided",
+	        "age": 500,
+	        "city": "Rome",
+	        "state": "California",
+	        "country": "USA"
         }
         
     }, function (e) {
         if (e.success) {
         	alert("An email has been sent for to confirm your account!");
-            Alloy.createController('tabGroupView').getView().open();
+            Alloy.createController('tabView/tabGroupView').getView().open();
         } else {
             alert('Error:\n' +
                 ((e.error && e.message) || JSON.stringify(e)));          

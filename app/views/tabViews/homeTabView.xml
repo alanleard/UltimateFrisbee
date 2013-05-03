@@ -1,7 +1,0 @@
-<Alloy>	
-	<Tab id="homeTab" title="Home" >
-        <Window id="homeWin">
-           <Label id="label1" color="#999">Home</Label>
-        </Window>
-    </Tab>
-</Alloy>

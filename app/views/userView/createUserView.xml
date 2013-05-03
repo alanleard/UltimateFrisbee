@@ -25,12 +25,12 @@
 				
 				<View class="container">
 					<Label class="label">Password: </Label>
-					<TextField id="password" class="textField" />
+					<TextField id="password" class="textField" passwordMask="true" />
 				</View>
 				
 				<View class="container">
 					<Label class="label">Confirm: </Label>
-					<TextArea id="confirm" class="textField" />
+					<TextArea id="confirm" class="textField" passwordMask="true" />
 				</View>
 				
 				<View class="container" left="40sp" right="40sp">
