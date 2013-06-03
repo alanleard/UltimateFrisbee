@@ -1,0 +1,53 @@
+<Alloy>
+	<Tab id="profileTab" title="Profile" >
+        <Window id="profileWin" class="background">
+			<View layout="vertical">
+				<View class="container" left="120sp" top="25sp">
+					<Label id="first_name" class="label" />
+					<Label class="label" >"</Label>
+					<Label id="nickname" class="label" left="0"/>
+					<Label class="label" left="0" >"</Label>
+					<Label id="last_name" class="label" />
+				</View>
+								
+				<View class="container" left="120sp" top="10sp">
+					<Label id="city" class="label"  />
+					<Label class="label" left="0">,</Label>
+					<Label id="state" class="label" />
+					<Label id="country" class="label" left="15sp"  />
+				</View>
+				
+				<View class="container" top="50sp">
+					<Label class="label">Team:</Label>
+					<Label id="team" class="label"/>					
+				</View>
+				
+				<View class="container">
+					<Label class="label">League:</Label>
+					<Label id="league" class="label" />
+				</View>
+				
+				<View class="container">
+					<Label class="label">Age:</Label>
+					<Label id="age" class="label" />
+				</View>
+				
+				<View class="container">
+					<Label class="label">Experience:</Label>
+					<Label id="experience" class="label"/>
+				</View>
+				
+				<View class="container">
+					<Label class="label">Gender:</Label>
+					<Label id="gender" class="label"/>
+				</View>
+				
+				<View class="container">
+					<Label class="label">Email:</Label>
+					<Label id="email" class="label"/>
+				</View>
+				
+			</View>
+        </Window>
+    </Tab>
+</Alloy>

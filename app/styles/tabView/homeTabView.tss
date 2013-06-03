@@ -1,0 +1,25 @@
+".background":{
+	backgroundColor:"white"
+},
+".termsFont":{
+	font:{fontSize:"10sp"},
+	color:"black",
+	right: '3sp'
+},
+".container": {
+	top:'2%',
+	layout:"horizontal",
+	width:Ti.UI.SIZE,
+	height: Ti.UI.SIZE
+},
+
+".button": {
+	width:'120sp'
+},
+
+".label":{
+	font:{fontSize:"14sp"},
+	width: '100sp',
+	height: Ti.UI.SIZE,
+	color:"black"
+}

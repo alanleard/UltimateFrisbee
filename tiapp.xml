@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ti:app xmlns:ti="http://ti.appcelerator.org">
-    <property name="acs-oauth-secret-production" type="string">NigZAsfI7cY7CDnhy2ToGTCu8yxQlZtd</property>
-    <property name="acs-oauth-key-production" type="string">DkNCV0KYWaoLBU4nsS8cJx65nNgF6vu8</property>
-    <property name="acs-api-key-production" type="string">3kCSn0sFNEOSFnkhiNuK1RudW3op04t8</property>
-    <property name="acs-oauth-secret-development" type="string">NWnZEprAmqLLAi7RZWIvDQSgW1DwPDNA</property>
-    <property name="acs-oauth-key-development" type="string">Wgbaprje9WpZ8rW1ha2xsEYfPBVVF3yB</property>
-    <property name="acs-api-key-development" type="string">UaiCS7smpKVyoG41QRiKHtF1PbIRMaNv</property>
+    <property name="acs-oauth-secret-production" type="string">VPsDpvqjUiGlm42QqCLIKyWqkz4Zrvbq</property>
+    <property name="acs-oauth-key-production" type="string">UPqEUwkl13jhXou8xyKkLYN2ypoc2Yav</property>
+    <property name="acs-api-key-production" type="string">v3E7ciYwhoaUE3g5d1lRnG8jHITj3NKj</property>
+    <property name="acs-oauth-secret-development" type="string">Kc8dttTecDCAUWffdnzc36IaIY7DpbqG</property>
+    <property name="acs-oauth-key-development" type="string">Rm7q0JkKIHihOYBEIPIDScykSmjUbzpd</property>
+    <property name="acs-api-key-development" type="string">jWJY3gzHceOlRLYA0myuBww7ZtEQMeDV</property>
     <id>com.ultimatefrisbee.app</id>
     <name>UltimateFrisbee</name>
     <version>1.0</version>
-    <publisher>aleard</publisher>
+    <publisher>ceighan</publisher>
     <url>http://</url>
     <description>not specified</description>
-    <copyright>2013 by aleard</copyright>
+    <copyright>2013 by Cory Eighan</copyright>
     <icon>appicon.png</icon>
     <persistent-wifi>false</persistent-wifi>
     <prerendered-icon>false</prerendered-icon>
@@ -45,6 +45,7 @@
     </mobileweb>
     <modules>
         <module platform="commonjs">ti.cloud</module>
+        <module platform="android">ti.cloudpush</module>
     </modules>
     <deployment-targets>
         <target device="blackberry">false</target>
@@ -52,9 +53,8 @@
         <target device="ipad">true</target>
         <target device="iphone">true</target>
         <target device="mobileweb">true</target>
-        <target device="tizen">false</target>
     </deployment-targets>
-    <sdk-version>3.1.0.v20130401091808</sdk-version>
+    <sdk-version>3.0.2.GA</sdk-version>
     <plugins>
         <plugin version="1.0">ti.alloy</plugin>
     </plugins>

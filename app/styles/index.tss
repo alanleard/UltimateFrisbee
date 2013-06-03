@@ -1,15 +1,49 @@
+".background":{
+	backgroundColor:"white"
+}
 ".container": {
-	backgroundColor:"white",
-	layout:"vertical"
+	top:'2%',
+	layout:"horizontal",
+	width:Ti.UI.SIZE,
+	height:Ti.UI.SIZE
+},
+".textField":{
+	left:'7sp',
+    color:"black",
+    right:'3%',
+    width:"250sp",
+    height:'40sp'
 },
 ".button": {
-	top:20,
-	width:100,
-	height:40
+	top:"5%",
+	width:'120sp'
 },
-"#createEvent":{
-    title:"Create Event"
+".label":{
+	font:{fontSize:"16sp"},
+	width: Ti.UI.SIZE,
+	height: Ti.UI.SIZE,
+	color:"black"
 },
-"#createPlayer":{
-    title:"Create Player"
+
+"#title":{
+	top:'1%',
+	color:'#700',
+	font:{fontSize:"48sp"},
+	width: Ti.UI.SIZE,
+	height: Ti.UI.SIZE
+}
+
+".forgotLabel":{
+	font:{fontSize:"16sp"},
+	color:'blue',
+	left:'5sp'
+},
+"#loginButton":{
+	title:"Login",
+	font:{fontSize:"16sp"}
+},
+"#signupButton":{
+	title:"Signup",
+	font:{fontSize:"16sp"},
+	left: '10sp'
 }
