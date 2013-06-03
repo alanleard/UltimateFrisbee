@@ -1,100 +1,184 @@
 function Controller() {
-    function showUser(evt) {
-        alert(evt.rowData.userData);
-    }
-    function getPlayers() {
-        Cloud.Users.query({
-            page: 1,
-            per_page: 100
+    function loginButton() {
+        var user = $.userName.value;
+        var password = $.password.value;
+        Cloud.Users.login({
+            login: user,
+            password: password
         }, function(e) {
-            if (e.success) {
-                var rows = [];
-                for (var i in e.users) {
-                    var user = e.users[i], row = Ti.UI.createTableViewRow({
-                        title: user.first_name,
-                        userData: user
-                    });
-                    rows.push(row);
-                }
-                $.players.setData(rows);
-            } else alert("Error:\n" + (e.error && e.message || JSON.stringify(e)));
+            e.success ? Alloy.createController("tabView/tabGroupView").getView().open() : alert("Error:\n" + (e.error && e.message || JSON.stringify(e)));
         });
     }
-    function createPlayer(e) {
-        e.source.backgroundColor = "red";
-        var name = "test_" + Math.random() * 100;
-        Cloud.Users.create({
-            username: name,
-            first_name: name,
-            last_name: "test_lastname",
-            password: "test_password",
-            password_confirmation: "test_password"
-        }, function(e) {
-            if (e.success) {
-                getPlayers();
-                Cloud.Users.logout(function(e) {
-                    e.success ? alert("Success: Logged out") : alert("Error:\n" + (e.error && e.message || JSON.stringify(e)));
-                });
-            } else alert("Error:\n" + (e.error && e.message || JSON.stringify(e)));
-        });
+    function forgotUser() {
+        alert("That's too bad! TODO: Create page to retrieve user info.");
     }
-    function createEvent() {
-        Cloud.Events.create({
-            name: "Celebration",
-            start_time: new Date,
-            duration: 3600,
-            recurring: "monthly",
-            recurring_count: 5
-        }, function(e) {
-            if (e.success) {
-                var event = e.events[0];
-                alert("Success:\nid: " + event.id + "\n" + "name: " + event.name + "\n" + "updated_at: " + event.updated_at);
-            } else alert("Error:\n" + (e.error && e.message || JSON.stringify(e)));
-        });
+    function forgotPass() {
+        alert("That's too bad! TODO: Create page to retrieve user info.");
+    }
+    function signup() {
+        Alloy.createController("userView/createUserView").getView().open();
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
-    $model = arguments[0] ? arguments[0].$model : null;
-    var $ = this, exports = {}, __defers = {};
-    $.__views.win = Ti.UI.createWindow({
+    arguments[0] ? arguments[0]["__parentSymbol"] : null;
+    arguments[0] ? arguments[0]["$model"] : null;
+    var $ = this;
+    var exports = {};
+    var __defers = {};
+    $.__views.login = Ti.UI.createWindow({
         backgroundColor: "white",
+        id: "login"
+    });
+    $.__views.login && $.addTopLevelView($.__views.login);
+    $.__views.__alloyId0 = Ti.UI.createView({
         layout: "vertical",
-        id: "win"
+        id: "__alloyId0"
     });
-    $.addTopLevelView($.__views.win);
-    $.__views.createEvent = Ti.UI.createButton({
-        top: 20,
-        width: 100,
-        height: 40,
-        title: "Create Event",
-        id: "createEvent"
+    $.__views.login.add($.__views.__alloyId0);
+    $.__views.title = Ti.UI.createLabel({
+        top: "1%",
+        color: "#700",
+        font: {
+            fontSize: "48sp"
+        },
+        width: Ti.UI.SIZE,
+        height: Ti.UI.SIZE,
+        text: "Sky'd",
+        id: "title",
+        textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
     });
-    $.__views.win.add($.__views.createEvent);
-    createEvent ? $.__views.createEvent.addEventListener("click", createEvent) : __defers["$.__views.createEvent!click!createEvent"] = !0;
-    $.__views.createPlayer = Ti.UI.createButton({
-        top: 20,
-        width: 100,
-        height: 40,
-        title: "Create Player",
-        id: "createPlayer"
+    $.__views.__alloyId0.add($.__views.title);
+    $.__views.__alloyId1 = Ti.UI.createView({
+        top: "20%",
+        layout: "horizontal",
+        width: Ti.UI.SIZE,
+        height: Ti.UI.SIZE,
+        id: "__alloyId1"
     });
-    $.__views.win.add($.__views.createPlayer);
-    createPlayer ? $.__views.createPlayer.addEventListener("click", createPlayer) : __defers["$.__views.createPlayer!click!createPlayer"] = !0;
-    $.__views.players = Ti.UI.createTableView({
-        id: "players"
+    $.__views.__alloyId0.add($.__views.__alloyId1);
+    $.__views.userName = Ti.UI.createTextField({
+        left: "7sp",
+        color: "black",
+        right: "3%",
+        width: "250sp",
+        height: "40sp",
+        id: "userName",
+        hintText: "Username:"
     });
-    $.__views.win.add($.__views.players);
-    showUser ? $.__views.players.addEventListener("click", showUser) : __defers["$.__views.players!click!showUser"] = !0;
+    $.__views.__alloyId1.add($.__views.userName);
+    $.__views.__alloyId2 = Ti.UI.createView({
+        top: "2%",
+        layout: "horizontal",
+        width: Ti.UI.SIZE,
+        height: Ti.UI.SIZE,
+        id: "__alloyId2"
+    });
+    $.__views.__alloyId0.add($.__views.__alloyId2);
+    $.__views.password = Ti.UI.createTextField({
+        left: "7sp",
+        color: "black",
+        right: "3%",
+        width: "250sp",
+        height: "40sp",
+        id: "password",
+        hintText: "Password:",
+        passwordMask: "true"
+    });
+    $.__views.__alloyId2.add($.__views.password);
+    $.__views.__alloyId3 = Ti.UI.createView({
+        top: "2%",
+        layout: "horizontal",
+        width: Ti.UI.SIZE,
+        height: Ti.UI.SIZE,
+        id: "__alloyId3"
+    });
+    $.__views.__alloyId0.add($.__views.__alloyId3);
+    $.__views.loginButton = Ti.UI.createButton({
+        top: "5%",
+        width: "120sp",
+        title: "Login",
+        font: {
+            fontSize: "16sp"
+        },
+        id: "loginButton"
+    });
+    $.__views.__alloyId3.add($.__views.loginButton);
+    loginButton ? $.__views.loginButton.addEventListener("click", loginButton) : __defers["$.__views.loginButton!click!loginButton"] = true;
+    $.__views.signupButton = Ti.UI.createButton({
+        top: "5%",
+        width: "120sp",
+        title: "Signup",
+        font: {
+            fontSize: "16sp"
+        },
+        left: "10sp",
+        id: "signupButton"
+    });
+    $.__views.__alloyId3.add($.__views.signupButton);
+    signup ? $.__views.signupButton.addEventListener("click", signup) : __defers["$.__views.signupButton!click!signup"] = true;
+    $.__views.__alloyId4 = Ti.UI.createView({
+        top: "0",
+        layout: "horizontal",
+        width: Ti.UI.SIZE,
+        height: Ti.UI.SIZE,
+        id: "__alloyId4"
+    });
+    $.__views.__alloyId0.add($.__views.__alloyId4);
+    $.__views.__alloyId5 = Ti.UI.createLabel({
+        font: {
+            fontSize: "16sp"
+        },
+        width: Ti.UI.SIZE,
+        height: Ti.UI.SIZE,
+        color: "black",
+        text: "Forgot",
+        id: "__alloyId5"
+    });
+    $.__views.__alloyId4.add($.__views.__alloyId5);
+    $.__views.__alloyId6 = Ti.UI.createLabel({
+        font: {
+            fontSize: "16sp"
+        },
+        color: "blue",
+        left: "5sp",
+        text: "Username",
+        id: "__alloyId6"
+    });
+    $.__views.__alloyId4.add($.__views.__alloyId6);
+    forgotUser ? $.__views.__alloyId6.addEventListener("click", forgotUser) : __defers["$.__views.__alloyId6!click!forgotUser"] = true;
+    $.__views.__alloyId7 = Ti.UI.createLabel({
+        font: {
+            fontSize: "16sp"
+        },
+        width: Ti.UI.SIZE,
+        height: Ti.UI.SIZE,
+        color: "black",
+        text: "or",
+        left: "5",
+        id: "__alloyId7"
+    });
+    $.__views.__alloyId4.add($.__views.__alloyId7);
+    $.__views.__alloyId8 = Ti.UI.createLabel({
+        font: {
+            fontSize: "16sp"
+        },
+        color: "blue",
+        left: "5sp",
+        text: "Password?",
+        id: "__alloyId8"
+    });
+    $.__views.__alloyId4.add($.__views.__alloyId8);
+    forgotPass ? $.__views.__alloyId8.addEventListener("click", forgotPass) : __defers["$.__views.__alloyId8!click!forgotPass"] = true;
     exports.destroy = function() {};
     _.extend($, $.__views);
-    $.win.open();
+    $.login.open();
     var Cloud = require("ti.cloud");
-    getPlayers();
-    __defers["$.__views.createEvent!click!createEvent"] && $.__views.createEvent.addEventListener("click", createEvent);
-    __defers["$.__views.createPlayer!click!createPlayer"] && $.__views.createPlayer.addEventListener("click", createPlayer);
-    __defers["$.__views.players!click!showUser"] && $.__views.players.addEventListener("click", showUser);
+    __defers["$.__views.loginButton!click!loginButton"] && $.__views.loginButton.addEventListener("click", loginButton);
+    __defers["$.__views.signupButton!click!signup"] && $.__views.signupButton.addEventListener("click", signup);
+    __defers["$.__views.__alloyId6!click!forgotUser"] && $.__views.__alloyId6.addEventListener("click", forgotUser);
+    __defers["$.__views.__alloyId8!click!forgotPass"] && $.__views.__alloyId8.addEventListener("click", forgotPass);
     _.extend($, exports);
 }
 
-var Alloy = require("alloy"), Backbone = Alloy.Backbone, _ = Alloy._, $model;
+var Alloy = require("alloy"), Backbone = Alloy.Backbone, _ = Alloy._;
 
 module.exports = Controller;

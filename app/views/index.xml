@@ -1,7 +1,27 @@
-<Alloy>
-	<Window id="win" class="container">
-		<Button id="createEvent" class="button" onClick="createEvent"/>
-		<Button id="createPlayer" class="button" onClick="createPlayer"/>
-		<TableView id="players" onClick="showUser" />
+<Alloy>	
+	<Window id="login" class="background">
+		<View layout="vertical">
+			<Label id="title" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER">Sky'd</Label>
+			
+			<View class="container" top="20%">				
+				<TextField id="userName" hintText="Username:" class="textField"/>
+			</View>
+			
+			<View class="container">				
+				<TextField id="password" hintText="Password:" passwordMask="true" class="textField" />
+			</View>
+			
+			<View class="container">
+				<Button id="loginButton" class="button" onClick="loginButton"/>
+				<Button id="signupButton" class="button" onClick="signup"/>
+			</View>
+			
+			<View class="container" top="0">
+				<Label class="label">Forgot </Label>
+				<Label class="forgotLabel" onClick="forgotUser"> Username</Label>
+				<Label class="label" left="5">or</Label>
+				<Label class="forgotLabel" onClick="forgotPass">Password?</Label>
+			</View>
+		</View>
 	</Window>
 </Alloy>
